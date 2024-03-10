@@ -1,0 +1,11 @@
+# Feb 23 2024
+
+
+Django commands
+1. django-admin stastproject <project-name>
+2. python manage.py runserver
+3. python manage.py startapp <app-name>
+    => always register your app in settings.py after creation
+
+4. python manage.py makemigrations <app_name>
+5. pyton manage.py migrate

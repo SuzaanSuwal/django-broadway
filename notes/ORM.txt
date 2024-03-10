@@ -1,0 +1,46 @@
+# Feb 28
+
+1. ORM stands for Object Relational Mapping.
+2. It is a wway of querying the database without having to write raw SQL queries.
+Rather we can directly write python code to query the database.
+4. Django has default support for ORM. We do not need to install  extra package for this service.
+
+
+Let's See basic CRUD ORMs
+
+Read
+1. If "ClassRoom" is the name of a model
+    => ClassRoom.objects.all() this query is equivalent to "SELECT * FROM CLASSROOM"
+    => This gives us queryset
+
+
+Classrooms = ClassRoom.objects.all()
+
+for Classroom in classrooms:
+    print(Classroom.name)
+
+2. Create
+# First method
+    ClassRoom.objects.create(name="One", address="KTM")
+    
+    #Second method
+    c = ClassRoom(name+"Two", address+"PKR")
+    c.save()
+
+
+#filter
+
+classrooms = Classroom.objects.filter(address="KTM")
+classrooms = Classroom.objects.filter(address=KTM", name="Ten")
+
+# get
+classroom = ClassRoom.objects.get(name="One")
+=> get() method should always be used with unique attributes like username, email, id, phone etc.
+=> There are two types of errors associated with get() method
+    => MultipleObjectsReturned: It is raised when get() is used  with datad occuring multiple times in a table
+    => DoesNotExist: It is raised when get() is used with datda not present in the table
+=> While using get() method always keep it inside try...
+
+
+Note: filter() method doesn't raise above errors.
+ 

@@ -1,0 +1,27 @@
+{% extends "myapp/temp_inherit_home.html" %}
+
+{% block content %}
+    <h1>This is Classroom page</h1>
+
+                                                
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Class Name</th>
+            <th scope="col">Address</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for classroom in classrooms %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ classroom.name }}</td>
+            <td>{{classroom.address}}</td>
+            
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+{% endblock %}  

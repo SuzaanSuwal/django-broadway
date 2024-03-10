@@ -1,0 +1,37 @@
+# Feb 29
+
+Take "ClassRoom" and "Student" as two models where Student table has an F.K classroom
+
+class ClassRoom:
+    - name
+    - address
+
+class Student:
+    - classroom (ForeignKey, related_name="classroom_students")
+    - name
+    - age
+
+
+1. Student.objects.create(name=, age=, classroom=<classroom_object>)
+2. Student.objects.create(name=, age=, classroom_id=2)
+
+3. Student.objects.filter(classroom_id=2)
+    => Gives qs of students enrolled in classroom id 2
+
+4. Student.objects.filter(classroom=<classroom_obj_2>)
+    => Gives qs of students enrolled in classroom id 2
+
+5. Student.objects.filter(classroom__name="One")
+6. Student.objects.filter(classroom__address="KTM")
+
+
+7. ClassRoom.objects.filter(classroom_students__name="Jane")
+    => returns classroom queryset
+    => Here 'classroom_students' is related_name in Student model
+
+8. ClassRoom.objects.filter(classroom_students__age=21)
+    => returns classroom queryset
+
+9. if "c" is the classroom object then:
+    => c.classroom_students.all() => It gives Student queryset
+    => c.classroom_students.filter(name="Jon")  => It gives student queryset
