@@ -1,0 +1,19 @@
+{% extends 'crud/base.html' %}
+
+{% block content %}
+    {% include 'crud/nav.html' %}
+    <br><br>
+    <h1>Update Classroom</h1>
+    <br>
+    <div>
+    <form method="post" action="{% url 'update_classroom' classroom.id %}">
+        {% csrf_token %}
+        <label>Name</label>
+        <input value="{{ classroom.name }}" class="form form-control col-md-6" name="name" type="text" style="width: 50%"><br>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <a class="btn btn-outline-success" href="{% url 'crud_classroom' %}">Cancel</a>
+    </form>
+
+    </div>
+{% endblock %}
+

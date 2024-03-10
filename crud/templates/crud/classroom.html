@@ -1,9 +1,31 @@
 {% extends 'crud/base.html' %}
 
-
 {% block content %}
     {% include 'crud/nav.html' %}
+    <br>
+    <h1>Classroom</h1>
+
+    <a href="{% url 'add_classroom' %}" class="btn btn-success" style="float: right;">Add Classroom</a>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Class Name</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for classroom in classrooms %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ classroom.name }}</td>
+            <td>
+                <a href="{% url 'update_classroom' classroom.id %}">Update</a>
+                <a href="{% url 'delete_classroom' classroom.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
-
-
-
