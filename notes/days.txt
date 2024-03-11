@@ -1,6 +1,11 @@
-1. Project setup and push to github (Feb 22)
-2. Project Structure and URLs (feb 23)
-3. Navbar,Navigation and Portfolio (Feb 25)
-4. Static Rendering(Feb 26)
-5. Project setup recao and Migration Introduction
-6. 
+1. Project Setup and Push to GitHub (Feb 22)
+2. Project Structure and URLs (Feb 23)
+3. NavBar, Navigation and Portfolio Page (Feb 25)
+4. Static Rendering and Context data (Feb 26)
+5. Project Setup Recap and Migration Introduction (Feb 27)
+6. Django Models, Create, Get, Filter ORM (Feb 28)
+7. Django ORM (Feb 29)
+8. Django ORM and Model Relations (March 3)
+9. Handling HTML form and HTTP methods (March 5)
+10. ClassRoom CRUD (March 6)
+11. ClassRoom CRUD complete and Student CRUD start (March 7)

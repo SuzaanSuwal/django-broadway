@@ -1,0 +1,32 @@
+{% extends "crud/base.html" %}
+{% load static %}
+
+
+{% block content %}
+    {% include "crud/nav.html" %}
+    <br>
+    <h2>User Profile</h2>
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+            {% if user.userprofile.profile_picture %}
+                <img src="{{ user.userprofile.profile_picture.url }}" alt="pr" style="height: 400px; width:300px">
+            {% else %}
+                <img src="{% static 'crud/images.jpg' %}" alt="pt" style="height: 300px"; width:"300px">
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <br>Name:</br>&nbsp;&nbsp;&nbsp;&nbsp;{{ user.userprofile.profile.get_full_name }}
+            <br>Address:</br>&nbsp;&nbsp;&nbsp;&nbsp;{{ user.userprofile.profile.Address }}
+            <br>Phone Number:</br>&nbsp;&nbsp;&nbsp;&nbsp;{{ user.userprofile.profile.phone }}
+            <br>
+            <br>
+            <a class="btn btn-success" href="{% url 'update_profile' %}">Update</a>
+            <a class="btn btn-success" href="{% url 'crud_classroom' %}">Cancel</a>
+    
+         
+
+        </div>
+
+    </div>
+{% endblock %}

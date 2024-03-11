@@ -19,3 +19,5 @@ class ClassRoom(models.Model):
 class Student(models.Model):
         user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='user_students')  
         classroom = models.ForeignKey(ClassRoom, on_delete=models.CASCADE, related_name="classroom_students")  
+
+

@@ -1,0 +1,44 @@
+{% extends "crud/base.html" %}
+{% load static %}
+
+
+{% block content %}
+    {% include 'crud/nav.html' %}
+    <br>
+    <h2>Update Profile</h2>
+    <br>
+    <form method="post" action="{% url 'update_profile' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-6">
+            {% if user.userprofile.profile_picture %}
+                <img src="{{ user.userprofile.profile_picture.url }}" style= "height: 300px; width: 300px">
+            {% else %}
+            <img src="{% static 'crud/images.jpg' %}" alt="pp" style="height: 300px"; width:"300px">
+            {% endif %}
+            <br><br><input type="file" name="pp">
+        </div>
+        <div class="col-md-6">
+            <div>
+                <label>First Name</label>
+                <input value="{{ user.userprofile.first_name }}"class="form form-control" type="text" name="fn">
+            </div>
+            <div>
+                <label>Last Name</label>
+                <input value="{{ user.userprofile.last_name }}"class="form form-control" type="text" name="ln">
+            </div>
+            <div>
+                <label>Address</label>
+                <input value="{{ user.userprofile.address }}"class="form form-control" type="text" name="address">
+            </div>
+            <div>
+                <label>Phone Number</label>
+                <input value="{{ user.userprofile.phone }}"class="form form-control" type="text" name="phone">
+            </div><br><br>
+            <button type="submit" class="btn btn-success">Submit</button>
+            <a class="btn btn-outline-success" href="{% url 'user_profile' %}">Cancel</a>
+
+        </div>
+    </div>
+    </form>
+{% endblock %}
