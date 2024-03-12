@@ -1,0 +1,31 @@
+{% extends 'crud/base.html' %}
+
+{% block content %}
+    {% include 'crud/nav.html' %}
+
+    <br>
+    <h2>Add Student</h2>
+    <br>
+    <form method="post" action="{% url 'add_student' %}">
+        {% csrf_token %}
+        <div class="form-group col-md-4">
+            <label for="inputState">Student Profile</label>
+            <select id="inputState" class="form-control" name="profile_id">
+                {% for profile in profiles %}
+                    <option value="{{ profile.id }}">{{ profile }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <br>
+        <div class="form-group col-md-4">
+            <label for="inputState">ClassRoom</label>
+            <select id="inputState" class="form-control" name="classroom_id">
+                {% for classroom in classrooms %}
+                    <option value="{{ classroom.id }}">{{ classroom.name }}</option>
+                {% endfor %}
+            </select>
+        </div><br>
+    <button type="submit" class="btn btn-success">Submit</button>
+    <a href="{% url 'crud_student' %}" class="btn btn-outline-success">Cancel</a>
+    </form>
+{% endblock %}

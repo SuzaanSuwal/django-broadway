@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 
-from .models import ClassRoom, UserProfile
+from .models import ClassRoom, Student, UserProfile
 
 
 def signup(request):
@@ -78,6 +78,21 @@ def delete_classroom(request, id):
         c.delete()
         return redirect("crud_classroom")
     return render(request, template_name="crud/delete_classroom.html", context={"classroom": c})
+
+def crud_student(request):
+    students = Student.objects.all()
+    return render(request, template_name='crud/student.html', context={'students': students})
+
+
+def add_student(request):
+    if request.method == "POST":
+        profile_id = request.POST.get('profile_id')
+        classroom_id = request.POST.get('classroom_id')
+        Student.objects.get_or_create(user_id=profile_id, classroom_id=classroom_id)
+        return redirect('crud_student')
+    profiles = UserProfile.objects.all()
+    classrooms = ClassRoom.objects.all()
+    return render(request, template_name='crud/add_student.html', context={"profiles": profiles, "classrooms": classrooms})
 
 @login_required
 def user_profile(request):
