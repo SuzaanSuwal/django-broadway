@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 
 from .models import ClassRoom, Student, UserProfile
+from .forms import ClassRoomForm, ClassRoomModelForm
 
 
 def signup(request):
@@ -120,3 +121,20 @@ def update_profile(request):
         
         return redirect("user_profile")
     return render(request, template_name="crud/update_profile.html", context={"user": user})
+
+
+
+def form_classroom(request):
+    if request.method == "POST":
+        # form = ClassRoomForm(request.POST)
+        form = ClassRoomModelForm(request.POST)
+        if form.is_valid():
+            # name = form.cleaned_data.get("name")
+            # ClassRoom.objects.create(name=name)
+            form.save()
+            return redirect('crud_classroom')
+            
+    # form = ClassRoomForm()      
+    form = ClassRoomModelForm()
+    return render(request, template_name="crud/form_classroom.html", context={"form": form})
+

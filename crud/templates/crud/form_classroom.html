@@ -1,0 +1,15 @@
+{% extends 'crud/base.html' %}
+
+{% block content %}
+    {% include 'crud/nav.html' %}
+    <br>
+    <form method="post" action="{% url 'form_classroom' %}">
+    {% csrf_token %}
+    {{ form }}
+    <br>
+    <button type="submit" class="btn btn-success">Submit</button>
+    <a href ="{% url 'crud_classroom' %}" class="btn btn-outline-success">Cancel</a>
+    </form>
+
+    
+{% endblock %}    

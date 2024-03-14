@@ -1,0 +1,14 @@
+{% extends 'crud/base.html' %}
+
+{% block content %}
+    {% include 'classbased/nav.html' %}
+    <br>
+    <h2>Update ClassRoom</h2>
+    <br>
+    <form method="post" action="{% url 'cb_update_classroom' object.id %}">Update</a>
+        {% csrf_token %}
+        {{ form }}
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

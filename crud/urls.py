@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import signup, user_login, classroom, user_logout, add_classroom, crud_student, update_classroom, delete_classroom, user_profile, update_profile, add_student
+from .views import signup, user_login, classroom, user_logout, add_classroom, crud_student, update_classroom, delete_classroom, user_profile, update_profile, add_student, form_classroom 
 
 
 
@@ -16,7 +16,12 @@ urlpatterns = [
     path("profile/", user_profile, name="user_profile"),
     path("update-profile/", update_profile, name="update_profile")
     
-
-    
 ]
 
+django_form_urls =[
+    path('form-classroom/', form_classroom, name="form_classroom")
+]
+
+
+
+urlpatterns += django_form_urls
