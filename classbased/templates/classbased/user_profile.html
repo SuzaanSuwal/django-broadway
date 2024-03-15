@@ -3,7 +3,7 @@
 
 
 {% block content %}
-    {% include "crud/nav.html" %}
+    {% include "classbased/nav.html" %}
     <br>
     <h2>User Profile</h2>
     <br>
@@ -22,7 +22,7 @@
             <br>
             <br>
             <a class="btn btn-success" href="{% url 'update_profile' %}">Update</a>
-            <a class="btn btn-success" href="{% url 'crud_classroom' %}">Cancel</a>
+            <a class="btn btn-outline" href="{% url 'crud_student' %}">Cancel</a>
     
          
 

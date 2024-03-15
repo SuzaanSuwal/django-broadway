@@ -13,12 +13,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Student</a>
             </li>
-            <li class="nav-item active">
-                {% comment %} <a class="nav-link" href="{% url 'classbased_classroom' %}">ClassRoom</a> {% endcomment %}
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'user_profile' %}">Profile</a>
-            </li>
+            {% if request.user.id %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'cb_user_profile' request.user.id %}">Profile</a>
+                </li>
+            {% endif %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'user_logout' %}">Logout</a>
             </li>

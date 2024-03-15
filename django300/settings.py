@@ -27,7 +27,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp',
     'crud',
-    'classbased'
+    'classbased',
+    'api',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [

@@ -1,6 +1,8 @@
-
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView
+from django.utils.decorators import method_decorator
+from django.views.generic import TemplateView, ListView, CreateView, UpdateView, \
+    DeleteView, DetailView
 from django.urls import reverse_lazy
 
 from crud.models import ClassRoom
@@ -49,7 +51,7 @@ class DeleteClassRoomView(DeleteView):
     context_object_name = "classroom"
     
 @method_decorator(login_required, name="get")  
-class UserProfileView(DataView):
+class UserProfileView(DetailView):
     queryset = User.objects.all()
     template_name = "classbased/user_profile.html"
     context_object_name = "user"
