@@ -1,0 +1,9 @@
+# 5th March
+Common HTTP methods are:
+1. GET  => Getting data from the server
+2. POST => Create a new entry in the server DB
+3. PUT => Update all data in a row
+4. PATCH => Update only a particular column or few columns
+5. DELETE => Remove a row from the table
+6. HEAD => Response headers (Headers are the metadata of a request and response)
+7. OPTIONS => Get all the available methods in a request

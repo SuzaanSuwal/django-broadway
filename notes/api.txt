@@ -1,7 +1,22 @@
 March 15
 
-
-1. API stands for Application Programming Interface
+1. API stands for Application Programmable Interface
 2. There are broadly two types of APIs
     i. SOAP APIs
-    => 
+        => SOAP APIs use XML data format to transfer data
+        E.g.
+        <name>Jon</name>
+        <age>30</age>
+        <address>KTM</address>
+
+
+    ii. RESTful APIs.
+        => REST APIs use JSON (Javascript Object Notation) format to transefer data
+        E.g.
+        {
+            "name": "Jon",
+            "age": 30,
+            "address": "KTM"
+        }
+3. APIs are like the communication medium among two or more entities.
+   => We can create APIs and use the same API to develop FE app and mobile app

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from crud.models import ClassRoom
+from crud.models import ClassRoom, UserProfile
 
 
 
@@ -12,6 +12,13 @@ class ClassRoomModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = ClassRoom
         fields = ["id", "name"]
+        
+
+class UserProfileModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserProfile
+        fields = ["address", "phone", "user"]
+    
         
         
     

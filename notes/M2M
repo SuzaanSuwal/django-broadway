@@ -1,0 +1,33 @@
+# March 12
+
+Publication:
+    title
+
+
+Article:
+    headline
+    publications (M2M)
+
+
+
+1. a1.publications.add(p2)
+2. a1.publications.all()  => Gives Publications Queryset
+
+3. p3.article_set.add(a1)
+4. p3.article_set.all() => Gives Article Queryset
+
+5. Article.objects.filter(publications=1)
+6. Article.objects.filter(publications__id=1)
+7. Article.objects.filter(publications=p1)
+
+8. Publication.objects.filter(article=1)
+9. Publication.objects.filter(article__id=1)
+10. Publication.objects.filter(article=a1)
+
+
+11. a1.publications.remove(p2)
+12. p2.article_set.remove(a1)
+
+
+13. AP = Article.publications.through
+14. AP.objects.all()
