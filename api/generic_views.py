@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.urls import path
 from rest_framework.generics import ListAPIView, CreateAPIView, ListCreateAPIView, UpdateAPIView, \
     RetrieveUpdateDestroyAPIView
@@ -5,7 +6,7 @@ from rest_framework.generics import ListAPIView, CreateAPIView, ListCreateAPIVie
 from rest_framework.viewsets import ModelViewSet
 from crud.models import ClassRoom, UserProfile
 
-from .serializers import ClassRoomModelSerializer, UserProfileModelSerializer
+from .serializers import ClassRoomModelSerializer, UserProfileModelSerializer, UserSerializer, StudentModelSerializer
 
 
 class ClassRoomGenericView(ListAPIView):
@@ -39,5 +40,15 @@ class CLassRoomViewSet(ModelViewSet):
     
     
 class UserProfileViewSet(ModelViewSet):
-    serializer_class = ClassRoomModelSerializer
+    serializer_class = UserProfileModelSerializer
     queryset = UserProfile.objects.all()
+    
+    
+class UserViewSet(ModelViewSet):
+    serializer_class = UserSerializer
+    queryset = User.objects.all() 
+    
+class StudentViewSet(ModelViewSet):
+    serializer_class = StudentModelSerializer
+    queryset = User.objects.all() 
+    
