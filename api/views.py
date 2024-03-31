@@ -1,6 +1,7 @@
 from django.http.response import JsonResponse
 from rest_framework.views import APIView
 from rest_framework.views import Response
+from rest_framework import status
 
 from crud.models import ClassRoom, Student, User, UserProfile
 from .serializers import ClassRoomSerializer, ClassRoomModelSerializer
@@ -111,7 +112,7 @@ class ClassRoomView(APIView):
             serializer.save()
             return Response(serializer.data)
         else:
-            return Response(serializer.errors)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
         
         

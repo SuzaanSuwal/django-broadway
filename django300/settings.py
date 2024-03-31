@@ -29,7 +29,10 @@ INSTALLED_APPS = [
     'crud',
     'classbased',
     'api',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework.authtoken',
+    'django_filters'
+    
 ]
 
 MIDDLEWARE = [
@@ -129,5 +132,16 @@ MESSAGE_TAGS = {
 }
 
 LOGIN_URL = 'user_login'
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication"
+    ],
+    # "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
+    "PAGE_SIZE": 2
+}
+
 
 

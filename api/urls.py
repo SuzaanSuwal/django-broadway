@@ -3,15 +3,17 @@ from .views import home, HomeView, StudentAPIView, StudentListAPIView, SimpleCla
     ClassRoomRetrieveView, ClassRoomView, ClassRoomUpdateDeleteView
     
 from .generic_views import ClassRoomGenericView, ClassRoomGenericCreateView, ClassRoomListCreateView, ClassRoomUpdateView,\
-    CLassRoomViewSet, ClassRoomRUDView, UserProfileViewSet, UserViewSet, StudentViewSet
+    CLassRoomViewSet, ClassRoomRUDView, UserProfileViewSet, UserViewSet
 
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken.views import obtain_auth_token
+
 router = DefaultRouter()
 
-router.register('classroom-viewset', CLassRoomViewSet)
-router.register('profile-viewset', UserProfileViewSet)
-router.register('user-viewset', UserViewSet)
-router.register('student-viewset', StudentViewSet)
+router.register('classroom-viewset', CLassRoomViewSet, basename="classroom")
+router.register('profile-viewset', UserProfileViewSet, basename="Userprofile")
+router.register('user-viewset', UserViewSet, basename="User")
+# router.register('student-viewset', StudentViewSet)
 
 
 
@@ -26,7 +28,12 @@ urlpatterns = [
     
     path("classroom/<int:id>/", ClassRoomRetrieveView.as_view()),
     path("classroom-update-delete/<int:id>/", ClassRoomUpdateDeleteView.as_view()),
-    path("classroom/", ClassRoomView.as_view()) 
+    path("classroom/", ClassRoomView.as_view()),
+ 
+ 
+    # Login URL
+    path('login/', obtain_auth_token)
+ 
     
 ]
 
@@ -38,6 +45,8 @@ generic_urlpatterns = [
     path("generic-classroom-update/<int:pk>/", ClassRoomUpdateView.as_view()),
     path("generic-classroom-rud/<int:pk>/", ClassRoomRUDView.as_view()),  # rud => Retrieve Update Delete
 
+
+
 ]
 
-urlpatterns = generic_urlpatterns + router.urls
+urlpatterns += generic_urlpatterns + router.urls
